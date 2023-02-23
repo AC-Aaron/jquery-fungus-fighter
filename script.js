@@ -35,7 +35,6 @@ function onReady() {
     
 function attackFungus() {
     console.log('you clicked one of the attack buttons!!');
-    attackPoints -= 10
     console.log('Fungus healthpoints down by 10')
     adjustFungusHP();
 
@@ -46,11 +45,26 @@ function adjustFungusHP() {
     fungusHealthPointsBar -= 10;
     $('.hp-text').text(fungusHealthPointsBar);
 
-    if(fungusHealthPointsBar > 0 ) {
+    if(fungusHealthPointsBar < 0 ) {        //adjust HP points so they cannot be <0
         fungusHealthPointsBar === 0 
     }
+   
+    adjustAttackPoints();
 }
+ //tested and this is currently NOT working, idk I've tried it both inside
+//of the "fungusHealthPointsBar" function, and outside of it. 
 
+function adjustAttackPoints(){
+    console.log('Your attack points went down by 10!!')
+    attackPoints -= 10;
+    $('.ap-text').text(attackPoints)
+
+    if(attackPoints < 0 ) {     //adjust attackPoints so they cannot be < 0
+        attackPoints === 0 
+    }
+}
+   //tested and this is currently NOT working, idk I've tried it both inside
+    //of the "adjustAttackPoints" function, and outside of it. 
 
 // function onReady() {
 //     console.log('inside onReady function');
