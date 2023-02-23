@@ -37,12 +37,18 @@ function attackFungus() {
     console.log('you clicked one of the attack buttons!!');
     attackPoints -= 10
     console.log('Fungus healthpoints down by 10')
-    adjustFungusHP;
+    adjustFungusHP();
 
 }
 
 function adjustFungusHP() {
-    $('.hp-text').text('score')
+    console.log('fungusHealthPointsBar is being adjusted')
+    fungusHealthPointsBar -= 10;
+    $('.hp-text').text(fungusHealthPointsBar);
+
+    if(fungusHealthPointsBar > 0 ) {
+        fungusHealthPointsBar === 0 
+    }
 }
 
 
